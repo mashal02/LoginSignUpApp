@@ -11,7 +11,7 @@
                 <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://shefa.sa/home">About Us</a>
+                <a class="nav-link" href="https://shefa.sa/about-us">About Us</a>
               </li>
               <li class="nav-item">
                 <router-link to="/profile" class="nav-link active" aria-current="page">Profile</router-link>

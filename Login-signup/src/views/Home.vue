@@ -53,5 +53,11 @@ import { ref } from 'vue';
     text-align: center;
     border-bottom:4px solid rgb(7, 108, 59);
     text-decoration: none;
+    
+}
+
+#signupbtn:hover {
+    background-color: rgb(7, 108, 59);
+    color: white;
 }
 </style>
