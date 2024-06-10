@@ -6,6 +6,7 @@
     <div id="aboutme">
         <h2>About Us</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit ac aliquam tincidunt, nunc mauris aliquet nunc, id lacinia nisl nunc vitae nunc. Nulla facilisi. Nulla facilisi. Sed euismod, velit ac aliquam tincidunt, nunc mauris aliquet nunc, id lacinia nisl nunc vitae nunc. Nulla facilisi. Nulla facilisi. Sed euismod, velit ac aliquam tincidunt, nunc mauris aliquet nunc, id lacinia nisl nunc vitae nunc. Nulla facilisi. Nulla facilisi.</p>
+       <router-link to="/Signup" id="signupbtn" class="dropdown-item">Join Us Now</router-link>
     </div>
 
 
@@ -42,5 +43,15 @@ import { ref } from 'vue';
     display: flex;
     flex-direction: column;
     text-align: justify;
+}
+
+#signupbtn {
+    margin: 20px auto;
+    width: 200px;
+    padding: 10px;
+    color: rgb(7, 108, 59);
+    text-align: center;
+    border-bottom:4px solid rgb(7, 108, 59);
+    text-decoration: none;
 }
 </style>

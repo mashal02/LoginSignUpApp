@@ -36,10 +36,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    const loggedIn = localStorage.getItem('token');
+    const loggedIn = localStorage.getItem('token') ;
   
     if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
-      alert('You must be logged in to see this page');  
       next('/login');
     } else {
       next();

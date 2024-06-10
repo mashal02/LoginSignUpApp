@@ -23,7 +23,7 @@
       <button class="btn" id="help" v-on:click="help()" onmouseover="this.innerHTML='Click Me'" onmouseout="this.innerHTML='Forgot Password'">
         Forgot Password
       </button> 
-      <p id="helptext" style="display:none">Change in Password not supported. You can create new account by <RouterLink to="/signup" >Sign Up</RouterLink></p>
+      <p id="helptext" style="display:none">Change in Password not supported by Dummy JSON </p>
     </div>
 
 
@@ -71,7 +71,6 @@ export default {
 </script>
 
 <style >
-
 *
 {
 font-family: Arial, Helvetica, sans-serif;
@@ -85,8 +84,6 @@ font-family: Arial, Helvetica, sans-serif;
     width:20%;
 }
 
-
-
 .container-md{
 margin-top: 40px;
 background-color: #f2f2f2;
@@ -96,8 +93,6 @@ border-radius: 5px;
 width:30%;
 margin-bottom: 20px;
 }
-
-
 
 .btn {
     background-color: darkmagenta;

@@ -81,8 +81,7 @@ export default {
             if (this.password === this.password2) {
                 this.savetolocalstorage();
                 console.log('Form submitted');
-                this.$router.push({ name: 'Profile' });
-                console.log('Navigating to profile');
+                this.$router.push({ name: 'login' });
             }
         }
             ,
