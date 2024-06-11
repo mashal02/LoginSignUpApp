@@ -35,8 +35,17 @@
             <input required type="password" class="form-control" v-model="password2">
           </div>
         <div class="mb-3 form-check" >
+            <div v-if="showterms" class="container" id="termscontainer">
+        <p id="termheading">Terms and Conditions</p>
+        <p>1. You must agree to the terms and conditions to sign up.</p>
+        <p>2. You must enter your email address, name, password, confirm password</p>
+        <p>3. You must meet our eligibility criteria</p>
+        <p>4. You must agree to our pravacy policy</p>
+
+        </div>
           <input required  type="checkbox" class="form-check-input" v-model="checkbox">
           <label class="form-check-label" for="exampleCheck1">I agree to the <span id="terms" @click="toggleterms" href="#">Terms and Conditions</span></label>
+          
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -47,11 +56,7 @@
         Help
       </button>
     </div>
-    <div v-if="showterms" class="container">
-        <p>Terms and Conditions</p>
-        <p>1. You must agree to the terms and conditions to sign up.</p>
-        <p>2. You must enter your email address, name, password, confirm password</p>
-        </div>
+    
 
 </template>
 
@@ -110,8 +115,6 @@ export default {
 
 <style scoped>
 
-
-
 .form-control {
     border: none;
     border-bottom: 1px solid #15562a;
@@ -131,8 +134,6 @@ export default {
     width:20%;
 }
 
-
-
 .container-md{
 margin-top: 40px;
 background-color: #ffffff;
@@ -144,8 +145,6 @@ margin-bottom: 20px;
 border: none;
 
 }
-
-
 
 .btn {
     background-color: darkmagenta;
@@ -192,10 +191,23 @@ text-align: center;
     color: #144d26;
     font-size: large;
 }
-#terms
-{
-    color: rgb(0, 121, 105);
+#termheading {
+    color: #15562a;
+    font-size: x-large;
+    text-align: center;
+    margin-top: 20px;
     text-decoration: underline;
+}
+#termscontainer {
+    display: flex;
+    align-items: left;
+    flex-direction:column;
+}
+#terms {
+    color: #15562a;
+    font-size: large;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 </style>

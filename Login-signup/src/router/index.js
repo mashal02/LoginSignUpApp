@@ -8,18 +8,22 @@ const routes = [
     {
         path:'/home',
         name:'home',
-        component: () => import('../views/Home.vue')
+        component: () => import('../views/Home.vue'),
+
     },
     {
         path:'/login',
         name:'login',
-        component: () => import('../views/loginform.vue')
+        component: () => import('../views/loginform.vue'),
+        meta: { requiresAuth: false }
+
     },
     {
         path:'/signup',
-
         name:'signup',
-        component: () => import('../views/signup.vue')
+        component: () => import('../views/signup.vue'),
+        meta: { requiresAuth: false }
+
     },
     {
         path:'/profile',
@@ -40,9 +44,14 @@ router.beforeEach((to, from, next) => {
   
     if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
       next('/login');
-    } else {
+    } 
+    else if (to.path === '/login'  && loggedIn){
+       next('/profile');
+    }
+    else {
       next();
     }
+
   });
 
 export default router

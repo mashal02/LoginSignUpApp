@@ -8,7 +8,7 @@
         
         <div class="mb-3" >
             <label class="form-label" >Username</label>
-            <input type="text" class="form-control" v-model="email">
+            <input type="text" class="form-control" v-model="username">
           </div>
         <div class="mb-3" >
           <label  class="form-label" >Password</label>
@@ -25,44 +25,40 @@
       </button> 
       <p id="helptext" style="display:none">Change in Password not supported by Dummy JSON </p>
     </div>
-
-
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "LoginForm",
   data() {
     return {
-     email:'emilys',
-     password: 'emilyspass',
+     username:'',
+     password: '',
       token: ''
     };
   },
   methods: {
     handleLogin() {
-      fetch('https://dummyjson.com/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: this.email,
-        password: this.password,
-
-      })
-    })
-      .then(res => res.json())
-      .then(res => { 
-        if (res) {
-          this.token = res.token;
-          localStorage.setItem('token', res.token);
+      console.log(this.username, this.password);
+      axios .post('https://dummyjson.com/auth/login', {
+          username: this.username,
+          password: this.password
+      }).then(res => {
+        console.log("Res:", res);
+        if (res.data) {
+          this.token = res.data.token;
+          localStorage.setItem('token', res.data.token);
           this.$router.push('/profile');
-        }  
-        else {
+        } else {
           alert('Invalid credentials');
-        }});
-      
-      },
+        }
+      }).catch(err => {
+        console.error(err);
+      });
+      }
+      ,
       help(){
         alert('Change in Password not supported. You can create new account by Sign Up')
       },
@@ -91,8 +87,6 @@ export default {
     width:20%;
 }
 
-
-
 .container-md{
 margin-top: 40px;
 background-color: #ffffff;
@@ -102,7 +96,6 @@ border-radius: 5px;
 width:30%;
 margin-bottom: 20px;
 border: none;
-
 }
 
 .btn {
