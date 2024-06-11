@@ -71,11 +71,18 @@ export default {
 </script>
 
 <style >
-*
-{
-font-family: Arial, Helvetica, sans-serif;
-}
 
+.form-control {
+    border: none;
+    border-bottom: 1px solid #15562a;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
+}
+.form-label {
+    color: #15562a;
+    margin-bottom: 0%;
+}
 .col-sm {
     background-color: #f2f2f2;
     padding: 10px;
@@ -84,14 +91,18 @@ font-family: Arial, Helvetica, sans-serif;
     width:20%;
 }
 
+
+
 .container-md{
 margin-top: 40px;
-background-color: #f2f2f2;
+background-color: #ffffff;
 padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
 width:30%;
 margin-bottom: 20px;
+border: none;
+
 }
 
 .btn {
@@ -105,10 +116,10 @@ margin-bottom: 20px;
     text-align: center;
     text-decoration: none;
 }
-
-
-
-
+.btn:hover {
+    background-color: rgb(7, 108, 59);
+    color: white;
+}
 
 #heading {
     margin-top: 40px;

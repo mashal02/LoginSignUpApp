@@ -15,4 +15,8 @@ export default {
 </script>
 
 <style>
+*
+{
+font-family: Arial, Helvetica, sans-serif;
+}
 </style>

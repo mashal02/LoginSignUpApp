@@ -1,6 +1,6 @@
 
 <template>
-<div class="col-lg"   id="heading">Welcome!</div>   
+<div class="col-lg"   id="heading">Register Now</div>   
     
  <div class ="container-md">
    
@@ -35,8 +35,8 @@
             <input required type="password" class="form-control" v-model="password2">
           </div>
         <div class="mb-3 form-check" >
-          <input type="checkbox" class="form-check-input" v-model="checkbox">
-          <label required class="form-check-label" for="exampleCheck1">I agree to the <a href="https://google.com">Terms and Conditions</a></label>
+          <input required  type="checkbox" class="form-check-input" v-model="checkbox">
+          <label class="form-check-label" for="exampleCheck1">I agree to the <span id="terms" @click="toggleterms" href="#">Terms and Conditions</span></label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -47,6 +47,11 @@
         Help
       </button>
     </div>
+    <div v-if="showterms" class="container">
+        <p>Terms and Conditions</p>
+        <p>1. You must agree to the terms and conditions to sign up.</p>
+        <p>2. You must enter your email address, name, password, confirm password</p>
+        </div>
 
 </template>
 
@@ -61,14 +66,15 @@ export default {
             password2: '',
             checkbox: false,
             Gender: '' ,
-            comp: ''
+            comp: '',
+            showterms: false
 
         }
     },
     methods: {
         
         help: function() {
-            alert("Please enter your email address, name, password, confirm password, genderand agree to the terms and conditions to sign up.");
+            alert("Please enter your email address, name, password, confirm password, gender, company, and agree to the terms and conditions to sign up.");
         },
         confirm: function() {
             if (this.password != this.password2) {
@@ -81,7 +87,7 @@ export default {
             if (this.password === this.password2) {
                 this.savetolocalstorage();
                 console.log('Form submitted');
-                this.$router.push({ name: 'login' });
+                this.$router.push({ name: 'Profile' });
             }
         }
             ,
@@ -92,18 +98,31 @@ export default {
             localStorage.setItem('gender', this.Gender);
             localStorage.setItem('company', this.comp);
             
+    },
+
+    toggleterms()
+    {
+        this.showterms = !this.showterms;
     }
 }
 }
 </script>
 
-<style >
+<style scoped>
 
-*
-{
-font-family: Arial, Helvetica, sans-serif;
+
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #15562a;
+    border-radius: 0px;
+    box-shadow: none;
+    outline: none;
 }
-
+.form-label {
+    color: #15562a;
+    margin-bottom: 0%;
+}
 .col-sm {
     background-color: #f2f2f2;
     padding: 10px;
@@ -116,12 +135,14 @@ font-family: Arial, Helvetica, sans-serif;
 
 .container-md{
 margin-top: 40px;
-background-color: #f2f2f2;
+background-color: #ffffff;
 padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
 width:30%;
 margin-bottom: 20px;
+border: none;
+
 }
 
 
@@ -137,10 +158,10 @@ margin-bottom: 20px;
     text-align: center;
     text-decoration: none;
 }
-
-
-
-
+.btn:hover {
+    background-color: rgb(7, 108, 59);
+    color: white;
+}
 
 #heading {
     margin-top: 40px;
@@ -170,6 +191,11 @@ text-align: center;
     margin-top: 20px;
     color: #144d26;
     font-size: large;
+}
+#terms
+{
+    color: rgb(0, 121, 105);
+    text-decoration: underline;
 }
 
 </style>
